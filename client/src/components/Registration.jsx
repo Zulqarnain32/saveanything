@@ -57,7 +57,7 @@ const Registration = () => {
             />
             <div className="error">{error}</div>
             <button type='submit' className='form-login-btn'>Register</button>
-            <p className='link'>Alredy have an account?<Link to="/login">Login </Link> </p>
+            <p className='link'>Alredy have an account?<Link to="/login"> Login </Link> </p>
         </form>
       </div>
     </>

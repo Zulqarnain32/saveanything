@@ -3,6 +3,8 @@ const router = express.Router()
 const UserModel = require("../model/UserSchema")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+
+// Register the user
 router.post("/register", async(req,res) => {
     const { username,email,password} = req.body;
     if(!username || !email || !password){
@@ -19,6 +21,7 @@ router.post("/register", async(req,res) => {
 })
 
 
+// Login the user 
 router.post("/login", async(req,res) => {
     const {email,password} = req.body;
     if( !email || !password){
@@ -38,10 +41,18 @@ router.post("/login", async(req,res) => {
 })
 
 
-// router.get('/logout', async(req,res) => {
-//     res.clearCookie(token)
-//     return res.json("token has been removed")
-// })
+// Fetch all login users 
+
+router.get("/users", async(req,res) => {
+   UserModel.find({})
+   .then(users => {
+    // console.log(users);
+    return res.json(users)
+   }).catch(err => {
+    console.log("couldn't fetch users!",err);
+   })
+})
+
 
 
 module.exports = router

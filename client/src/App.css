@@ -6,6 +6,11 @@
   font-family: 'Poppins',sans-serif;
 }
 
+::-webkit-scrollbar
+{
+  display: none;
+}
+
 /*? navbar css  */
 .navbar{
   display: flex;
@@ -80,4 +85,39 @@ h2{
 }
 .error{
   color: red;
+}
+
+
+/*? users container  */
+.users-container{
+  margin-top: 50px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 0 30px;
+}
+.single-user{
+  flex-basis: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color:rgb(193, 202, 210) ;
+  border-radius: 10px;
+}
+.single-user p{
+  margin: 15px 0;
+}
+.single-user button{
+  padding: 12px 30px;
+  background-color: rgb(2, 107, 255);
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  box-shadow: 4px 4px 4px rgb(121, 120, 120), -2px -2px 4px rgb(121, 120, 120);
+}
+.single-user button:hover{
+  box-shadow: inset 4px 4px 5px rgb(39, 41, 179), inset -3px -3px 5px rgb(39, 41, 179);
 }
