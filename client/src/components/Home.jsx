@@ -14,6 +14,7 @@ const Home = () => {
     axios.get("https://save-anything-backend.vercel.app/auth/users")
     .then(res => {
      console.log(res.data);
+     setLoading(true)
      setUsers(res.data)
     }).catch(err => {
      console.log("failed",err);

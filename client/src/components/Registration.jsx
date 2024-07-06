@@ -20,6 +20,7 @@ const Registration = () => {
     .then(result => {
       if(result.data.message === "successfully register"){
          setError("")
+         setLoading(true)
          navigate("/login")
 
       } else if(result.data.message === "email already exist"){

@@ -22,6 +22,7 @@ const Login = () => {
     .then(result => {
       console.log(result);
       if(result.data.message === "logined"){
+        setLoading(true)
         setCookie("access_token",result.data.token)
         window.localStorage.setItem("usertoken",result.data.token)
         setLoading(true)
