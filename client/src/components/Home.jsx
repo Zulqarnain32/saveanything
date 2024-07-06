@@ -19,7 +19,7 @@ const Home = () => {
     }).catch(err => {
      console.log("failed",err);
     }).finally(() => {
-      setLoading(false)
+      setLoading(true)
     })
    }, [])
 
