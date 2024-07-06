@@ -73,6 +73,7 @@ h2{
   width: 100%;
   background-color: rgb(10, 103, 42);
   height: 40px;
+  line-height: 40px;
   border: none;
   color: #fff;
   cursor: pointer;

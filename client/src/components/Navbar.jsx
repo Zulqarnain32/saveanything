@@ -1,7 +1,6 @@
 import React from "react";
 import { useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
-import axios from "axios";
 const Navbar = () => {
   const [cookie, setCookie] = useCookies(["access_token"]);
 
@@ -17,6 +16,7 @@ const Navbar = () => {
           <Link className="nav-link " to="/">
             Home
           </Link>
+      
 
           <Link
             className="nav-link"

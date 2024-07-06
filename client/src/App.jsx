@@ -6,6 +6,7 @@ import Secret from './components/Secret'
 import Registration from './components/Registration'
 import Login from './components/Login'
 import { useCookies } from 'react-cookie'
+import Loading from './components/Loading'
 
 import("./App.css")
 const App = () => {

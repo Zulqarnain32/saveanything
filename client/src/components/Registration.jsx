@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link,useNavigate } from 'react-router-dom'
 import axios from "axios"
+import { BarLoader } from "react-spinners";
 
 
 const Registration = () => {
@@ -8,10 +9,12 @@ const Registration = () => {
   const [ email,setEmail ] = useState("")
   const [ password,setPassword ] = useState("")
   const [ error,setError ] = useState("")
+  const [loading,setLoading] = useState(false)
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true)
     // axios.post("http://localhost:5000/auth/register",{username,email,password})
     axios.post("https://save-anything-backend.vercel.app/auth/register",{username,email,password})
     .then(result => {
@@ -27,6 +30,8 @@ const Registration = () => {
       console.log(result);
     }).catch(err => {
       console.log(err);
+    }).finally(() => {
+      setLoading(false)
     })
   }
 
@@ -57,7 +62,7 @@ const Registration = () => {
              onChange={(e) => setPassword(e.target.value)}
             />
             <div className="error">{error}</div>
-            <button type='submit' className='form-login-btn'>Register</button>
+            <button type='submit' className='form-login-btn'>{loading ? <BarLoader color='white'/>:"Register"}</button>
             <p className='link'>Alredy have an account?<Link to="/login"> Login </Link> </p>
         </form>
       </div>
