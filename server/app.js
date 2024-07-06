@@ -22,6 +22,10 @@ mongoose.connect("mongodb+srv://zulqarnain:savedFriends@cluster0.u0lv4zk.mongodb
     console.log("connected to database");
 }).catch(err => console.log("not connected"))
 
+app.get("/", (req,res) => {
+    res.json("Hello World")
+})
+
 app.listen(port, () => {
     console.log("server is listening at port 5000");
 })
