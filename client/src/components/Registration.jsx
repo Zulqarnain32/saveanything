@@ -12,7 +12,8 @@ const Registration = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5000/auth/register",{username,email,password})
+    // axios.post("http://localhost:5000/auth/register",{username,email,password})
+    axios.post("https://save-anything-backend.vercel.app/auth/register",{username,email,password})
     .then(result => {
       if(result.data.message === "successfully register"){
          setError("")

@@ -5,7 +5,8 @@ const Home = () => {
    const [ users,setUsers ] = useState([])
 
    useEffect(() => {
-    axios.get("http://localhost:5000/auth/users")
+    // axios.get("http://localhost:5000/auth/users")
+    axios.get("https://save-anything-backend.vercel.app/auth/users")
     .then(res => {
      console.log(res.data);
      setUsers(res.data)
