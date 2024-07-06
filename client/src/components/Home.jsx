@@ -28,6 +28,7 @@ const Home = () => {
     <>
       <div className="users-container">
         <BarLoader color='red'/>
+        {loading && <BarLoader color='red'/>}
         {users.map((user, i) => (
           <React.Fragment key = {i}>
             <div   className="single-user">
