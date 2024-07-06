@@ -20,7 +20,7 @@ const Navbar = () => {
 
           <Link
             className="nav-link"
-            to={!cookie.access_token ? "/register" : "/secret"}
+            to="/secret"
           >
             Secret
           </Link>

@@ -22,7 +22,7 @@ const Login = () => {
         window.localStorage.setItem("usertoken",result.data.token)
         setError("")
         navigate("/secret")
-        window.location.reload()
+        // window.location.reload()
       } else if(result.data.message === "incorrect password"){
          setError("incorrect password")
       } else if(result.data.message === "invalid email"){

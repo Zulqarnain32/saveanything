@@ -20,13 +20,13 @@ const Home = () => {
     <>
       <div className="users-container">
         {users.map((user, i) => (
-          <>
-            <div  key={i} className="single-user">
+          <React.Fragment key = {i}>
+            <div   className="single-user">
               <h1>{user.username.toUpperCase()}</h1>
               <p>{user.email}</p>
               <button className="save-user">Save</button>
             </div>
-          </>
+          </React.Fragment>
         ))}
       </div>
     </>
