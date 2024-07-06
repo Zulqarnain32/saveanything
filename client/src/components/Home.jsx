@@ -10,16 +10,16 @@ const Home = () => {
 
    useEffect(() => {
     setLoading(true)
-    // axios.get("http://localhost:5000/auth/users")
-    axios.get("https://save-anything-backend.vercel.app/auth/users")
+    axios.get("http://localhost:5000/auth/users")
+    // axios.get("https://save-anything-backend.vercel.app/auth/users")
     .then(res => {
      console.log(res.data);
-     setLoading(true)
+     setLoading(false)
      setUsers(res.data)
     }).catch(err => {
      console.log("failed",err);
     }).finally(() => {
-      setLoading(true)
+      setLoading(false)
     })
    }, [])
 
@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <>
       <div className="users-container">
-        <BarLoader color='red'/>
+       {loading &&  <div className="home-loader"> <BarLoader color='red'/></div>}
         {users.map((user, i) => (
           <React.Fragment key = {i}>
             <div   className="single-user">

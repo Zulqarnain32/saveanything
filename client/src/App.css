@@ -122,3 +122,11 @@ h2{
 .single-user button:hover{
   box-shadow: inset 4px 4px 5px rgb(39, 41, 179), inset -3px -3px 5px rgb(39, 41, 179);
 }
+
+.home-loader{
+  height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
