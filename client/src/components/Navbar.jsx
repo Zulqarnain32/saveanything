@@ -2,6 +2,7 @@ import React, { useState,useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { Link } from "react-router-dom";
 import axios from "axios"
+
 const Navbar = () => {
   const [cookie, setCookie] = useCookies(["access_token"]);
   const [ userData,setUserData ] = useState()
@@ -11,7 +12,8 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    axios.get('http://localhost:5000/auth/singleUser', { withCredentials: true })
+    // axios.get('http://localhost:5000/auth/singleUser', { withCredentials: true })
+    axios.get('https://save-anything-backend.vercel.app/auth/singleUser', { withCredentials: true })
         .then(response => {
             console.log("Response:", response.data);
             setUserData(response.data);
@@ -37,7 +39,7 @@ const Navbar = () => {
             Secret
           </Link>
           <Link className="nav-link " to="/">
-            {userData && userData.email}
+            {cookie.access_token && userData && userData.email }
           </Link>
           {!cookie.access_token ? (
             <Link className="nav-link login-btn" to="/login">

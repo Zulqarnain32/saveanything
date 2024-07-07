@@ -11,8 +11,8 @@ const Home = () => {
 
    useEffect(() => {
     setLoading(true)
-    axios.get("http://localhost:5000/auth/users")
-    // axios.get("https://save-anything-backend.vercel.app/auth/users")
+    // axios.get("http://localhost:5000/auth/users")
+    axios.get("https://save-anything-backend.vercel.app/auth/users")
     .then(res => {
      console.log(res.data);
      setLoading(false)
