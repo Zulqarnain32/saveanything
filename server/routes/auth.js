@@ -55,4 +55,39 @@ router.get("/users", async(req,res) => {
 
 
 
+// Middleware to verify token
+const verifyToken = (req, res, next) => {
+    const token = req.cookies.token; // Corrected the token retrieval
+    if (!token) {
+        console.log('No token found');
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
+    jwt.verify(token, 'Secret Key', (err, decoded) => {
+        if (err) {
+            console.error('Error verifying token:', err);
+            return res.status(401).json({ message: 'Invalid token' });
+        }
+        console.log('Decoded token:', decoded);
+        req.userId = decoded.id;
+        req.userRole = decoded.role;
+        next();
+    });
+};
+
+// Route to fetch a single user's details
+router.get('/singleUser', verifyToken, async (req, res) => {
+    try {
+        const user = await UserModel.findById(req.userId, { name: 2, email: 1, role: 1, _id: 1 });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.json({ name: user.name, email: user.email, role: user.role, id: user._id });
+    } catch (error) {
+        console.log("Backend error:", error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+});
+
+
+
 module.exports = router
