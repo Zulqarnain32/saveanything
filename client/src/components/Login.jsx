@@ -27,7 +27,7 @@ const Login = () => {
         window.localStorage.setItem("usertoken",result.data.token)
         setLoading(true)
         setError("")
-        navigate("/secret")
+        // navigate("/secret")
         window.location.reload()
       } else if(result.data.message === "incorrect password"){
          setError("incorrect password")
